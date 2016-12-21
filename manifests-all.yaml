@@ -25,15 +25,15 @@ spec:
       - image: grafana/grafana:4.0.2
         name: grafana-core
         imagePullPolicy: IfNotPresent
-        # env:
+         env:
         resources:
-          # keep request = limit to keep this container in guaranteed class
+           keep request = limit to keep this container in guaranteed class
           limits:
-            #cpu: 100m
-            #memory: 100Mi
+            cpu: 100m
+            memory: 100Mi
           requests:
-            #cpu: 100m
-            #memory: 100Mi
+            cpu: 100m
+            memory: 100Mi
         env:
           # The following env variables set up basic auth twith the default admin user and admin password.
           - name: GF_AUTH_BASIC_ENABLED
@@ -2127,11 +2127,11 @@ spec:
           containerPort: 9090
         resources:
           requests:
-            cpu: 500m
-            memory: 500M
+            cpu: 100m
+            memory: 100M
           limits:
-            cpu: 500m
-            memory: 500M
+            cpu: 100m
+            memory: 100M
         volumeMounts:
         - name: config-volume
           mountPath: /etc/prometheus
