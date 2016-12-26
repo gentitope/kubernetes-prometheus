@@ -1970,9 +1970,14 @@ metadata:
   name: grafana
   namespace: monitoring
 spec:
-  backend:
-    serviceName: grafana
-    servicePort: 3000
+  rule:
+  - host: grafana.tajawal.com
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: grafana
+          servicePort: 3000
 ---
 apiVersion: v1
 kind: Service
